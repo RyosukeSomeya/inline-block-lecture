@@ -53,6 +53,8 @@
             border: 1px solid #ccc;
             text-align: center;
         }
+
+        /* inline-blockのグロナビ */
         .inline-gnav ul {
             font-size: 0;
         }
@@ -61,7 +63,6 @@
             display: inline-block;
             font-size: 16px;
             width: 10%;
-            list-style: none;
             padding: 15px;
             background: #eee;
             border: 1px solid #ccc;
@@ -77,8 +78,6 @@
             height: 60px;
         }
 
-        .thumb-warp {
-        }
         .thumb-warp::after {
             content:"";
             display: block;
@@ -103,7 +102,12 @@
     <header>
         <div>
             <strong>inline-blockの使い所</strong><br>
-            全体のレイアウトとしてではなく、モジュール（パーツ）をデザインの実現に使うのが良い
+            全体のレイアウトとしてではなく、モジュール（パーツ）をデザインの実現に使うのが良い<br>
+            「ここはfloat、ここはinline-block」などといった絶対的な指標はないので、<br>
+            <strong>どちらが少ないコードでかけるか？</strong><br>
+            <strong>どちらが修正するとき楽か</strong><br>
+            <strong>どちらが簡単にデザインを実現できるか？</strong><br>
+            ということを考えてやってみるのが良い。
         </div>
     </header>
     <!-- clearが面倒臭いが、左右の順番を入れ替えたりすることも可能。ある程度融通がきく -->
