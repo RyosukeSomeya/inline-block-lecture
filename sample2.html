@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>floatとinline-block</title>
+    <style>
+        header,
+        main,
+        footer {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        header,
+        footer {
+            padding: 30px;
+            background: #ccc;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background: #DEEAEF;
+        }
+
+        h1,
+        h2,
+        p {
+            padding: 15px;
+            background: #CDDFE7;
+        }
+
+        div {
+            padding: 10px;
+            background: #fff;
+        }
+
+        /* float */
+        .left-container {
+            float:left;
+            width: 600px;
+            height: 400px;
+            background: #eee;
+        }
+        .right-container {
+            float:right;
+            width: 280px;
+            height: 400px;
+            background: #CDDFE7;
+        }
+
+        /* clearできる要素があるとき */
+        /* flatしている要素の次にfloatしていないblock要素があるとき */
+        .bottom-container {
+            width: 100%;
+            background: blue;
+            color: #fff;
+            clear: both;
+        }
+
+        /* clearfix */
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* inline-block */
+        .ib-left-container {
+            display: inline-block;
+            width: 600px;
+            height: 400px;
+            background: #eee;
+        }
+        .ib-right-container {
+            display: inline-block;
+            width: 280px;
+            height: 400px;
+            background: #CDDFE7;
+        }
+        .ib-bottom-container {
+            display: inline-block;
+            width: 100%;
+            height: 400px;
+            background: blue;
+            color: #fff;
+        }
+
+        /* 隙間対策 */
+        /* main {
+            font-size: 0;
+        }
+        .ib-left-container,
+        .ib-right-container,
+        .ib-bottom-container {
+            font-size: 16px;
+        } */
+    </style>
+</head>
+
+<body>
+    <header>
+        ヘッダー (display: block;)
+        <div>
+            なので、さいと全体のレイアウトはまずはblockレベルの要素でできないか考えるべき。<br>
+            そのため、2カラム、3カラムなどセクションの左寄せ、右寄せといったレイアウト調整は
+            inline-blockでもできるが、<strong>floatの方が向いている</strong>。
+            inline-blockは「inlineの要素にblock要素の特性を追加したもの」と考える方が良い。
+        </div>
+    </header>
+    <!-- clearが面倒臭いが、左右の順番を入れ替えたりすることも可能。ある程度融通がきく -->
+    <main class="clearfix">
+        <div class="left-container">
+            左カラム
+        </div>
+        <div class="right-container">
+            右カラム
+        </div>
+        <div class="bottom-container">
+            下カラム
+        </div>
+    </main>
+
+    <!-- inlne-blockでも横並びにはできるが、左から順番に問答無用で並ぶので
+    柔軟性にかける、すきまが空くなどの癖がある -->
+    <!-- <main>
+        <div class="ib-left-container">
+            左カラム(inline-block)
+        </div>
+        <div class="ib-right-container">
+            右カラム(inline-block)
+        </div>
+        <div class="ib-bottom-container">
+            下カラム(inline-block)<br>
+            ※カラム落ち
+        </div>
+    </main> -->
+    <footer>
+        footer
+    </footer>
+</body>
+
+</html>

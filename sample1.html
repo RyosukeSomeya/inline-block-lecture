@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>floatとinline-block</title>
+    <style>
+        header, main,footer {
+            width: 980px;
+            margin: 0 auto;
+        }
+        header, footer {
+            padding: 30px;
+            background: #ccc;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background: #DEEAEF;
+        }
+        h1, h2, p {
+            padding: 15px;
+            background: #CDDFE7;
+        }
+
+        div {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        ヘッダー (display: block;)
+        <div>
+            サイトのアウトライン（セクション）を構成する要素は、デフォルトがblockレベルの要素である。<br>
+            HTMLの構成としてレイアウトはblockレベル要素で作るのが基本。
+        </div>
+    </header>
+    <main>
+        main要素　(display: block;)
+        <section>
+            section要素　(display: block;)
+            <h1>セクション1 (display: block;)</h1>
+            <div>
+                <h2>中見出し1 (display: block;)</h2>
+                <p>
+                    (display: block;)<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus doloremque tempora dolorum veniam voluptatum
+                    molestiae vitae recusandae rem. Aperiam at repellat illo doloremque iure blanditiis, provident quam saepe non
+                    aliquam?
+                </p>
+                <h2>中見出し2 (display: block;)</h2>
+                <p>
+                    (display: block;)<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus doloremque tempora dolorum veniam voluptatum
+                    molestiae vitae recusandae rem. Aperiam at repellat illo doloremque iure blanditiis, provident quam saepe non
+                    aliquam?
+                </p>
+            </div>
+        </section>
+        <section>
+            section要素　(display: block;)
+            <h1>セクション2 (display: block;)</h1>
+            <p>
+                (display: block;)<br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus doloremque tempora dolorum veniam voluptatum molestiae vitae recusandae rem. Aperiam at repellat illo doloremque iure blanditiis, provident quam saepe non aliquam?
+            </p>
+        </section>
+        <section>
+            section要素　(display: block;)
+            <h1>セクション3 (display: block;)</h1>
+            <p>
+                (display: block;)<p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus doloremque tempora dolorum veniam voluptatum molestiae vitae recusandae rem. Aperiam at repellat illo doloremque iure blanditiis, provident quam saepe non aliquam?
+            </p>
+        </section>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+</html>

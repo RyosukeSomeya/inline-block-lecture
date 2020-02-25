@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>floatとinline-block</title>
+    <style>
+        header,
+        main,
+        footer {
+            width: 980px;
+            margin: 0 auto;
+        }
+
+        header,
+        footer {
+            padding: 30px;
+            background: #ccc;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background: #DEEAEF;
+        }
+        h1 {
+            font-size: 20px;
+        }
+        h1,
+        h2,
+        p {
+            padding: 15px;
+            background: #CDDFE7;
+        }
+        div {
+            background: #fff;
+        }
+        /* floatグロナビ */
+        .block-gnav ul::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .block-gnav li {
+            float: left;
+            width: 10%;
+            list-style: none;
+            padding: 15px;
+            background: #eee;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .inline-gnav ul {
+            font-size: 0;
+        }
+        .inline-gnav li {
+            list-style: none;
+            display: inline-block;
+            font-size: 16px;
+            width: 10%;
+            list-style: none;
+            padding: 15px;
+            background: #eee;
+            border: 1px solid #ccc;
+            text-align: center;
+            /* vertical-align: top; */
+            /* vertical-align: bottom; */
+            vertical-align: middle;
+        }
+        .inline-gnav li:nth-child(even) {
+            height: 30px;
+        }
+        .inline-gnav li:nth-child(odd) {
+            height: 60px;
+        }
+
+        .thumb-warp {
+        }
+        .thumb-warp::after {
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .thum-blist {
+            width: 160px;
+            float: left;
+            margin-right: 10px;
+        }
+        .ib-thum-blist {
+            display: inline-block;
+            width: 160px;
+            vertical-align: top;
+            /* vertical-align: bottom; */
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <strong>inline-blockの使い所</strong><br>
+            全体のレイアウトとしてではなく、モジュール（パーツ）をデザインの実現に使うのが良い
+        </div>
+    </header>
+    <!-- clearが面倒臭いが、左右の順番を入れ替えたりすることも可能。ある程度融通がきく -->
+    <main class="clearfix">
+        <h1>例1) グローバルナビ</h1>
+        <div class="block-gnav">
+            <p>floatで作るグロナビ</p>
+            <ul>
+                <li>リスト1</li>
+                <li>リスト2</li>
+                <li>リスト3</li>
+                <li>リスト4</li>
+                <li>リスト5</li>
+            </ul>
+        </div>
+        <div class="inline-gnav">
+            <p>inline-blockで作るグロナビ</p>
+            <ul>
+                <li>リスト1</li>
+                <li>リスト2</li>
+                <li>リスト3</li>
+                <li>リスト4</li>
+                <li>リスト5</li>
+            </ul>
+        </div>
+        <h1>例2) ブログ記事のサムネイルリストなど</h1>
+        <div class="block-thumb"><!-- clearfixが必要 -->
+            <p>floatで作るサムネイルリスト</p>
+            <div class="thumb-warp">
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキストテキストテキストが長いと.....回り込みがおきてしまうので調整も必要</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキストテキスト</dd>
+                </dl>
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="ib-thumb">
+            <p>inline-blockで作るサムネイルリスト</p>
+            <div class="ib-thumb-warp">
+                <dl class="thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキストテキストテキストが長くなっても回り込みはおきずにきっちり並ぶ</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキストテキストテキスト</dd>
+                </dl>
+                <dl class="ib-thum-blist">
+                    <dt><img src="dora.jpg" width="160"></dt>
+                    <dd>テキストテキスト</dd>
+                </dl>
+            </div>
+        </div>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+
+</html>
