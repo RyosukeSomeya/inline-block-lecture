@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>floatとinline-block</title>
+    <style>
+        header,
+        main,
+        footer {
+            width: 980px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 20px;
+        }
+
+        ul {
+            display: flex;
+            /* height: 300px; */
+            /* 水平方向の中央寄せ */
+            /* justify-content: center; */
+            /* 水平方向の右寄せ */
+            /* justify-content: flex-end; */
+            /* 垂直方向の中央寄せ */
+            /* align-items: center; */
+            /* 垂直方向の下寄せ */
+            /* align-items: flex-end; */
+            /* 横方向の要素の入れ替え */
+            /* flex-direction: row-reverse; */
+            /* 縦方向の要素の入れ替え */
+            /* flex-direction: column-reverse; */
+        }
+
+        li {
+            list-style: none;
+            padding: 10px;
+        }
+        li:nth-child(even) {
+            background: #ccc;
+        }
+        li:nth-child(odd) {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            これからはFlexを中心にレイアウトは考えて行きましょう。<br>
+            通常block要素に指定するのが大変だった縦方向中央揃えなども簡単にできるなど、<br>
+            利便性が高い.
+            レイアウトはもちろん、モジュールのデザイン実現などにも有効。
+        </div>
+    </header>
+    <main>
+       <h1>display:flexだけで横並びに</h1>
+       <div class="wrap">
+        <ul>
+            <li>リスト1</li>
+            <li>リスト2</li>
+            <li>リスト3</li>
+            <li>リスト4</li>
+            <li>リスト5</li>
+        </ul>
+       </div>
+       <p>cleafixなども不要</p>
+    </main>
+    <footer>
+        footer
+    </footer>
+</body>
+
+</html>
